@@ -12,5 +12,10 @@
     docker network connect my-net-v1 rabbit-mq
 
     docker build -t q-consumer .
-    docker run --rm -it --network my-net-v1 --name mq-client1 q-consumer consumer.py rabbit-mq
+    docker run --rm -it --network my-net-v1 --name mq-client1 q-consumer ./worker_queue/consumer.py rabbit-mq
  """
+
+### Rabbit MQ - Publish Subscribe setup
+"""
+    docker run -it --rm --name consumer_01 --network my-net-v1 rabbitmq-consumer python ./publish_subscribe/consumer.py
+"""
